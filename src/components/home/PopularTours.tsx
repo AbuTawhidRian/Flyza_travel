@@ -1,153 +1,157 @@
 import Link from "next/link";
 import { Clock, Users, Star, MapPin, ArrowRight } from "lucide-react";
 
-const tours = [
+const luxuryTours = [
   {
     id: 1,
-    title: "Greek Island Hopping",
-    image: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80",
-    destination: "Greece",
-    duration: "10 Days",
-    groupSize: "Max 12",
-    price: 2499,
-    originalPrice: 2999,
-    rating: 4.9,
-    reviews: 128,
-    category: "Luxury",
+    title: "Greek Odyssey: Private Yachting & Aegean Villas",
+    destination: "Santorini & Mykonos, Greece",
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=85",
+    duration: "10 Days / 9 Nights",
+    group: "Private / Couple",
+    price: 2890,
+    rating: 4.98,
+    reviews: 142,
+    badge: "SIGNATURE EXPERIENCE",
   },
   {
     id: 2,
-    title: "Bali Spiritual Retreat",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-    destination: "Indonesia",
-    duration: "7 Days",
-    groupSize: "Max 8",
-    price: 1699,
-    originalPrice: 2199,
-    rating: 4.8,
-    reviews: 95,
-    category: "Wellness",
+    title: "Swiss Alpine Serenity: Zermatt & St. Moritz Express",
+    destination: "Zurich & Alps, Switzerland",
+    image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=1000&q=85",
+    duration: "8 Days / 7 Nights",
+    group: "Bespoke Itinerary",
+    price: 3450,
+    rating: 4.95,
+    reviews: 98,
+    badge: "LUXURY EXPRESS",
   },
   {
     id: 3,
-    title: "Tokyo Cultural Experience",
-    image: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80",
-    destination: "Japan",
-    duration: "8 Days",
-    groupSize: "Max 15",
-    price: 2899,
-    originalPrice: 3299,
-    rating: 4.9,
-    reviews: 142,
-    category: "Culture",
+    title: "Maldives Overwater Sanctuary & Coral Atolls",
+    destination: "North Malé Atoll, Maldives",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1000&q=85",
+    duration: "6 Days / 5 Nights",
+    group: "Private Pool Villa",
+    price: 3950,
+    rating: 5.0,
+    reviews: 86,
+    badge: "HONEYMOON SPECIAL",
   },
   {
     id: 4,
-    title: "Maldives Overwater Paradise",
-    image: "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=600&q=80",
-    destination: "Maldives",
-    duration: "5 Days",
-    groupSize: "Couples",
-    price: 3999,
-    originalPrice: 4999,
-    rating: 5.0,
-    reviews: 67,
-    category: "Romantic",
+    title: "Sacred Umrah & Spiritual Elegance Journey",
+    destination: "Makkah & Madinah, Saudi Arabia",
+    image: "https://images.unsplash.com/photo-1565552684305-7e23f0449914?w=1000&q=85",
+    duration: "12 Days / 11 Nights",
+    group: "5-Star Haram View",
+    price: 2190,
+    rating: 4.99,
+    reviews: 310,
+    badge: "SACRED PILGRIMAGE",
   },
 ];
 
 export default function PopularTours() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
-          <div>
-            <span className="text-sky-500 font-semibold text-sm uppercase tracking-widest">
-              Best Sellers
+    <section className="py-28 bg-[#F8FAFC] border-t border-slate-200/60">
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <span className="text-[#C5A059] font-bold text-xs uppercase tracking-[0.25em] block mb-3">
+              ✦ Handcrafted Curations
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-poppins text-gray-900 mt-2">
-              Popular Tours
+            <h2 className="text-3xl sm:text-5xl font-serif-luxury font-normal text-[#0A1128] tracking-tight">
+              Bespoke Tour Packages
             </h2>
-            <p className="text-gray-500 mt-3 max-w-lg">
-              Our most loved packages, chosen by thousands of happy travelers.
+            <p className="text-slate-500 text-sm sm:text-base mt-4 font-light leading-relaxed">
+              Every detail carefully orchestrated—private chauffeured transfers, verified 5-star properties, English-speaking specialist guides, and VIP airport services.
             </p>
           </div>
           <Link
             href="/tours"
-            className="flex items-center gap-2 text-sky-600 font-semibold hover:text-sky-700 group"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#0A1128] hover:text-[#C5A059] transition-colors pb-1 border-b-2 border-[#0A1128] hover:border-[#C5A059] self-start md:self-auto"
           >
-            View All Tours
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Browse Full Catalog</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tours.map((tour) => (
+        {/* Tour Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          {luxuryTours.map((tour) => (
             <div
               key={tour.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden card-hover border border-gray-100"
+              className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between card-luxury group"
             >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-                <div className="absolute top-3 left-3 bg-sky-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {tour.category}
+              <div>
+                {/* Photo with Overlay */}
+                <div className="relative h-64 w-full overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-[#0A1128]/90 backdrop-blur-md text-[#DFB76C] text-[9.5px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full border border-[#C5A059]/30">
+                      {tour.badge}
+                    </span>
+                  </div>
                 </div>
-                <div className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-lg">
-                  SALE
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center gap-1.5 text-xs text-[#C5A059] font-semibold uppercase tracking-wider mb-2">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>{tour.destination}</span>
+                  </div>
+
+                  <h3 className="font-serif-luxury font-medium text-lg text-[#0A1128] leading-snug mb-4 group-hover:text-[#C5A059] transition-colors">
+                    {tour.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between text-xs text-slate-500 py-3 border-y border-slate-100 mb-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-slate-400" />
+                      {tour.duration}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Users className="w-3.5 h-3.5 text-slate-400" />
+                      {tour.group}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-5">
-                <div className="flex items-center gap-1 text-gray-500 text-xs mb-2">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{tour.destination}</span>
-                </div>
-                <h3 className="font-bold text-gray-900 font-poppins text-base mb-3 leading-tight">
-                  {tour.title}
-                </h3>
-
-                {/* Meta */}
-                <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" />
-                    {tour.duration}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Users className="w-3.5 h-3.5" />
-                    {tour.groupSize}
-                  </span>
-                </div>
-
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-4">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm font-semibold text-gray-800">{tour.rating}</span>
-                  <span className="text-xs text-gray-400">({tour.reviews} reviews)</span>
-                </div>
-
-                {/* Price + CTA */}
-                <div className="flex items-center justify-between">
+              {/* Price & Action */}
+              <div className="p-6 pt-0">
+                <div className="flex items-end justify-between mb-4">
                   <div>
-                    <span className="text-xs text-gray-400 line-through">${tour.originalPrice.toLocaleString()}</span>
-                    <div className="text-xl font-extrabold text-sky-600 font-poppins">
+                    <span className="text-[10.5px] uppercase tracking-wider text-slate-400 block font-medium">
+                      All-Inclusive From
+                    </span>
+                    <div className="text-2xl font-serif-luxury font-bold text-[#0A1128]">
                       ${tour.price.toLocaleString()}
-                      <span className="text-xs text-gray-400 font-normal">/person</span>
+                      <span className="text-xs text-slate-400 font-sans font-normal ml-1">
+                        /person
+                      </span>
                     </div>
                   </div>
-                  <Link
-                    href={`/tours/${tour.id}`}
-                    className="bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-xs font-semibold px-4 py-2 rounded-xl hover:shadow-md hover:scale-105 transition-all"
-                  >
-                    Book Now
-                  </Link>
+                  <div className="flex items-center gap-1 text-xs font-semibold text-slate-700">
+                    <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    <span>{tour.rating}</span>
+                  </div>
                 </div>
+
+                <Link
+                  href={`/tours/${tour.id}`}
+                  className="w-full flex items-center justify-center gap-2 bg-[#0A1128] hover:bg-[#C5A059] text-white hover:text-[#0A1128] text-xs font-bold uppercase tracking-[0.16em] py-3 rounded-xl transition-all duration-300"
+                >
+                  <span>View Itinerary</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           ))}

@@ -1,78 +1,81 @@
 import Link from "next/link";
-import { ShieldCheck, HeartPulse, ArrowRight, Building2, Globe2, MessageCircle } from "lucide-react";
+import { ShieldCheck, ArrowRight, MessageCircle } from "lucide-react";
 
 export default function ChannelPartnerSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-slate-50 border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full text-amber-600 text-xs font-bold uppercase tracking-widest mb-3">
-            Strategic Healthcare Collaboration
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-poppins text-slate-900 tracking-tight mb-4">
-            OUR TRUSTED CHANNEL PARTNER
+    <section className="py-28 bg-[#050B14] text-white relative overflow-hidden">
+      {/* Subtle luxury glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#C5A059]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[#C5A059] font-bold text-xs uppercase tracking-[0.25em] block mb-3">
+            ✦ Strategic Global Healthcare Alliance
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-serif-luxury font-normal text-white tracking-tight mb-4">
+            Our Trusted Channel Partner
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Flyza Tours & Travels is proud to collaborate with <strong>My 1 Health</strong>, connecting patients with world-class medical treatments, specialized care, and affordable healthcare solutions across 20+ countries.
+          <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+            Flyza Tours & Travels proudly collaborates with <strong>My 1 Health</strong>, bridging the gap between world-class international travel and accredited global healthcare across 20+ countries.
           </p>
         </div>
 
-        {/* Partnership Card / Banner */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left: Handshake Banner */}
+        {/* Master Showcase Banner Card */}
+        <div className="bg-[#0B1526] rounded-3xl p-6 sm:p-12 border border-[#C5A059]/30 shadow-[0_30px_90px_rgba(0,0,0,0.5)] mb-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left: Official Handshake Banner */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden shadow-md bg-sky-50 border border-slate-100 h-[220px] sm:h-[280px]">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 h-[240px] sm:h-[320px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/partner_banner.jpg"
-                  alt="My 1 Health & Flyza Collaboration"
+                  alt="My 1 Health & Flyza Partnership"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
 
-            {/* Right: Overview & Points */}
-            <div className="lg:col-span-6 space-y-4">
-              <span className="text-amber-600 font-bold text-xs uppercase tracking-wider">
-                Connecting You To Quality Healthcare Around the World
+            {/* Right: Partnership Pillars */}
+            <div className="lg:col-span-6 space-y-5">
+              <span className="text-[#DFB76C] font-semibold text-xs uppercase tracking-[0.2em] block">
+                Connecting You To Quality Healthcare Around The World
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold font-poppins text-slate-900">
-                End-to-End Medical Travel Support
+              <h3 className="text-2xl sm:text-3xl font-serif-luxury font-medium text-white leading-tight">
+                Seamless Medical Concierge & Logistics
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                From initial specialist consultations and second opinions to medical visa processing, hospital admission, hotel accommodations, and airport-to-hospital transfers.
+              <p className="text-slate-300 text-sm font-light leading-relaxed">
+                Receive second opinions from world-leading physicians, confirmed appointments at top hospital networks (Apollo, Bumrungrad, Cleveland Clinic, Mayo Clinic, Acıbadem), with Flyza managing all flights, medical visas, accommodation, and private transfers.
               </p>
 
-              <div className="space-y-2.5 pt-2">
+              <div className="space-y-3 pt-2">
                 {[
-                  "1,000+ Top Partner Hospitals Worldwide",
-                  "Direct hospital rates with zero referral fees",
-                  "Priority doctor appointments & telemedicine options",
-                  "Dedicated patient care coordinator from Flyza & My 1 Health",
-                ].map((point, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                    <span>{point}</span>
+                  "Over 1,000+ Verified Hospitals across 20+ Countries",
+                  "Direct Hospital Rates with Zero Referral Fees or Markups",
+                  "Dedicated Patient & Family Concierge from Chattogram",
+                  "Priority Visa Processing & Airport Ambulance / Transfers",
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                    <ShieldCheck className="w-4 h-4 text-[#C5A059] flex-shrink-0" />
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 flex flex-wrap gap-3">
+              <div className="pt-4 flex flex-wrap gap-4">
                 <Link
                   href="/channel-partner"
-                  className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all hover:scale-105 shadow-md"
+                  className="inline-flex items-center gap-2 bg-[#C5A059] hover:bg-[#DFB76C] text-[#0A1128] font-bold text-xs uppercase tracking-[0.18em] px-8 py-4 rounded-xl shadow-lg transition-all hover:scale-105"
                 >
-                  <span>Explore Partner Hospitals</span>
-                  <ArrowRight className="w-4 h-4 text-amber-400" />
+                  <span>View Hospital Directory</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 <a
-                  href="https://wa.me/8801334225588?text=Hello%20Flyza%2C%20I%20would%20like%20to%20inquire%20about%20Medical%20Tourism%20and%20Doctor%20Appointments%20with%20My%201%20Health."
+                  href="https://wa.me/8801334225588?text=Hello%20Flyza%2C%20I%20would%20like%20to%20consult%20regarding%20Medical%20Tourism%20with%20My%201%20Health."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all"
+                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 rounded-xl shadow-lg transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Medical Desk</span>
@@ -82,40 +85,40 @@ export default function ChannelPartnerSection() {
           </div>
         </div>
 
-        {/* Quick Country Badges */}
+        {/* Global Network Country Strips */}
         <div className="text-center">
-          <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-4">
-            Partner Hospitals Available In:
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 block mb-5">
+            Specialized Care Centers In:
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-3">
             {[
-              { name: "India", flag: "🇮🇳" },
-              { name: "United States", flag: "🇺🇸" },
-              { name: "Singapore", flag: "🇸🇬" },
-              { name: "Thailand", flag: "🇹🇭" },
-              { name: "South Korea", flag: "🇰🇷" },
-              { name: "Malaysia", flag: "🇲🇾" },
-              { name: "UAE", flag: "🇦🇪" },
-              { name: "Turkey", flag: "🇹🇷" },
-              { name: "United Kingdom", flag: "🇬🇧" },
-              { name: "Germany", flag: "🇩🇪" },
-              { name: "Spain", flag: "🇪🇸" },
-              { name: "Saudi Arabia", flag: "🇸🇦" },
+              { flag: "🇮🇳", name: "India" },
+              { flag: "🇺🇸", name: "United States" },
+              { flag: "🇸🇬", name: "Singapore" },
+              { flag: "🇹🇭", name: "Thailand" },
+              { flag: "🇰🇷", name: "South Korea" },
+              { flag: "🇲🇾", name: "Malaysia" },
+              { flag: "🇦🇪", name: "UAE" },
+              { flag: "🇹🇷", name: "Turkey" },
+              { flag: "🇬🇧", name: "United Kingdom" },
+              { flag: "🇩🇪", name: "Germany" },
+              { flag: "🇪🇸", name: "Spain" },
+              { flag: "🇸🇦", name: "Saudi Arabia" },
             ].map((c) => (
               <Link
                 key={c.name}
                 href="/channel-partner"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs text-slate-700 hover:border-amber-400 hover:text-amber-700 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#C5A059] hover:bg-white/10 text-xs text-slate-300 hover:text-white transition-all"
               >
                 <span>{c.flag}</span>
-                <span className="font-medium">{c.name}</span>
+                <span className="font-medium tracking-wide">{c.name}</span>
               </Link>
             ))}
             <Link
               href="/channel-partner"
-              className="text-xs font-bold text-amber-600 hover:underline px-2 py-1"
+              className="text-xs font-bold text-[#DFB76C] hover:underline px-3 py-2"
             >
-              +8 More Countries →
+              +8 More Nations →
             </Link>
           </div>
         </div>

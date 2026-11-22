@@ -1,117 +1,127 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const destinations = [
+const curatedDestinations = [
   {
-    name: "Santorini, Greece",
-    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80",
-    tours: 24,
-    tag: "Romantic",
-    tagColor: "bg-pink-500",
+    title: "Santorini & The Cyclades",
+    country: "Greece",
+    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=85",
+    tag: "ISLAND RETREAT",
+    badge: "Bespoke Yachting",
+    tours: "12 Curated Itineraries",
   },
   {
-    name: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80",
-    tours: 36,
-    tag: "Adventure",
-    tagColor: "bg-orange-500",
+    title: "Kyoto & Mount Fuji",
+    country: "Japan",
+    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&q=85",
+    tag: "ANCIENT HERITAGE",
+    badge: "Ryokan Sanctuary",
+    tours: "9 Curated Itineraries",
   },
   {
-    name: "Maldives",
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=80",
-    tours: 18,
-    tag: "Luxury",
-    tagColor: "bg-purple-500",
+    title: "Baa Atoll & Malé",
+    country: "Maldives",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&q=85",
+    tag: "OVERWATER SANCTUARY",
+    badge: "Private Lagoon",
+    tours: "15 Curated Itineraries",
   },
   {
-    name: "Tokyo, Japan",
-    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80",
-    tours: 29,
-    tag: "Culture",
-    tagColor: "bg-red-500",
+    title: "The Swiss Alps & Zermatt",
+    country: "Switzerland",
+    image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=1200&q=85",
+    tag: "ALPINE PRESTIGE",
+    badge: "Scenic Express",
+    tours: "8 Curated Itineraries",
   },
   {
-    name: "Paris, France",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80",
-    tours: 42,
-    tag: "Classic",
-    tagColor: "bg-sky-500",
+    title: "Amalfi Coast & Capri",
+    country: "Italy",
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=85",
+    tag: "MEDITERRANEAN CHARM",
+    badge: "Clifftop Villas",
+    tours: "11 Curated Itineraries",
   },
   {
-    name: "Safari, Kenya",
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80",
-    tours: 15,
-    tag: "Wildlife",
-    tagColor: "bg-green-500",
+    title: "Maasai Mara Luxury Safari",
+    country: "Kenya",
+    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=85",
+    tag: "WILDLIFE EXPEDITION",
+    badge: "Tented Luxury",
+    tours: "7 Curated Itineraries",
   },
 ];
 
 export default function FeaturedDestinations() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-28 bg-[#FDFDFD]">
+      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14">
         {/* Header */}
-        <div className="text-center mb-14">
-          <span className="text-sky-500 font-semibold text-sm uppercase tracking-widest">
-            Top Picks
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold font-poppins text-gray-900 mt-2 mb-4">
-            Featured Destinations
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            From sun-soaked beaches to ancient cultural wonders — discover the world's
-            most breathtaking destinations, handpicked for you.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <span className="text-[#C5A059] font-bold text-xs uppercase tracking-[0.25em] block mb-3">
+              ✦ Exclusive Travel Portfolios
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-serif-luxury font-normal text-[#0A1128] tracking-tight">
+              Featured Destinations
+            </h2>
+            <p className="text-slate-500 text-sm sm:text-base mt-4 font-light leading-relaxed">
+              Handpicked havens where dramatic landscapes meet bespoke comfort. Each destination is personally vetted by Flyza travel specialists.
+            </p>
+          </div>
+          <Link
+            href="/destinations"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#0A1128] hover:text-[#C5A059] transition-colors pb-1 border-b-2 border-[#0A1128] hover:border-[#C5A059] self-start md:self-auto"
+          >
+            <span>View All Destinations</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {destinations.map((dest, i) => (
+        {/* Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {curatedDestinations.map((dest, i) => (
             <Link
               key={i}
               href="/destinations"
-              className="group relative overflow-hidden rounded-2xl shadow-md card-hover block"
+              className="group block relative overflow-hidden rounded-3xl bg-slate-900 card-luxury"
             >
-              {/* Image */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-[440px] w-full overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={dest.image}
-                  alt={dest.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={dest.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.9]"
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/95 via-[#0A1128]/40 to-transparent" />
 
-                {/* Tag */}
-                <span
-                  className={`absolute top-4 left-4 ${dest.tagColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
-                >
-                  {dest.tag}
-                </span>
+                {/* Top Pill */}
+                <div className="absolute top-5 left-5">
+                  <span className="bg-white/90 backdrop-blur-md text-[#0A1128] text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-sm">
+                    {dest.tag}
+                  </span>
+                </div>
 
-                {/* Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="flex items-center gap-1.5 text-white/80 text-sm mb-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{dest.tours} tours available</span>
-                  </div>
-                  <h3 className="text-white text-xl font-bold font-poppins">
-                    {dest.name}
+                <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowUpRight className="w-5 h-5" />
+                </div>
+
+                {/* Bottom Card Copy */}
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <span className="text-[#DFB76C] text-xs font-bold uppercase tracking-widest block mb-1">
+                    {dest.country} · {dest.badge}
+                  </span>
+                  <h3 className="text-2xl font-serif-luxury font-medium text-white mb-2 group-hover:text-[#F9E7B9] transition-colors">
+                    {dest.title}
                   </h3>
+                  <div className="text-xs text-slate-300 font-light flex items-center justify-between pt-2 border-t border-white/20">
+                    <span>{dest.tours}</span>
+                    <span className="text-[#C5A059] font-semibold">Explore Journey →</span>
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link
-            href="/destinations"
-            className="inline-flex items-center gap-2 border-2 border-sky-500 text-sky-600 px-8 py-3 rounded-full font-semibold hover:bg-sky-500 hover:text-white transition-all duration-200"
-          >
-            View All Destinations
-          </Link>
         </div>
       </div>
     </section>
