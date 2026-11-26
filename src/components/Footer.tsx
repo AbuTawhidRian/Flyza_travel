@@ -64,23 +64,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Identity & Head Office */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3.5">
-              <div className="relative w-12 h-12 rounded-full bg-white p-1 shadow-sm flex items-center justify-center overflow-hidden">
+            <Link href="/" className="inline-block group">
+              <div className="bg-white/95 rounded-2xl p-3 border border-[#C5A059]/40 shadow-lg inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.02]">
                 <Image
                   src="/logo.png"
-                  alt="Flyza"
-                  width={46}
-                  height={46}
-                  className="object-contain"
+                  alt="Flyza Tours & Travels - Beyond Every Journey"
+                  width={180}
+                  height={56}
+                  className="h-12 sm:h-13 w-auto object-contain"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-black font-brand-heading text-white tracking-[0.06em]">
-                  Flyza
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.24em] font-extrabold text-[#C5A059] mt-0.5">
-                  Beyond Every Journey
-                </span>
               </div>
             </Link>
 

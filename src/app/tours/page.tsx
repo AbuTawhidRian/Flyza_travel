@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clock, Users, Star, MapPin, Search, SlidersHorizontal, ArrowRight, ShieldCheck } from "lucide-react";
+import { Clock, Users, Star, MapPin, Search, SlidersHorizontal, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 const allTours = [
@@ -141,8 +141,6 @@ export default function ToursPage() {
     const matchCat = selectedCategory === "All" || t.category === selectedCategory;
     return matchSearch && matchCat;
   }).sort((a, b) => {
-    if (sortBy === "price-low") return a.price - b.price;
-    if (sortBy === "price-high") return b.price - a.price;
     if (sortBy === "rating") return b.rating - a.rating;
     return 0;
   });
@@ -206,8 +204,6 @@ export default function ToursPage() {
               className="border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-[#C5A059]/20 bg-white"
             >
               <option value="featured">Featured Curations</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
               <option value="rating">Top Rated</option>
             </select>
           </div>
@@ -271,24 +267,28 @@ export default function ToursPage() {
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
-                <div className="flex items-end justify-between mb-4">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-medium">
-                      Starting From
-                    </span>
-                    <div className="text-2xl font-serif-luxury font-bold text-[#0A1128]">
-                      ${tour.price.toLocaleString()}
-                      <span className="text-xs text-slate-400 font-sans font-normal ml-1">
-                        /person
-                      </span>
-                    </div>
-                  </div>
+              <div className="p-6 pt-0 space-y-2.5">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10.5px] uppercase tracking-wider text-[#C5A059] font-bold">
+                    Bespoke Quotation
+                  </span>
                   <div className="flex items-center gap-1 text-xs font-semibold text-slate-700">
                     <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                     <span>{tour.rating}</span>
                   </div>
                 </div>
+
+                <a
+                  href={`https://wa.me/8801334225588?text=${encodeURIComponent(
+                    `Hello Flyza, I would like to ask for pricing and availability for "${tour.title}" (${tour.destination}, ${tour.duration}).`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-[0.14em] py-3 rounded-xl transition-all duration-300 shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Ask Price on WhatsApp</span>
+                </a>
 
                 <Link
                   href={`/tours/${tour.id}`}

@@ -1,4 +1,6 @@
 import { Star } from "lucide-react";
+import TiltCard3D from "@/components/ui/TiltCard3D";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const testimonials = [
   {
@@ -23,49 +25,53 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-28 bg-[#F8FAFC] border-t border-slate-200/60">
-      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-[#C5A059] font-bold text-xs uppercase tracking-[0.25em] block mb-3">
-            ✦ Client Chronicles
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif-luxury font-normal text-[#0A1128] tracking-tight mb-4">
-            Voices of Our Travelers
-          </h2>
-          <p className="text-slate-500 text-sm sm:text-base font-light">
-            Memories etched in timeless comfort. Here is how our clients experience the Flyza standard.
-          </p>
-        </div>
+    <section className="py-24 sm:py-28 bg-white border-t border-slate-200/70">
+      <div className="max-w-[1480px] mx-auto px-5 sm:px-8 lg:px-12">
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[#9E7D3B] font-bold text-xs uppercase tracking-[0.25em] block mb-3">
+              ✦ Client Chronicles
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-serif-luxury font-normal text-[#040812] tracking-tight mb-4">
+              Voices of Our Travelers
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base font-light">
+              Memories etched in timeless comfort. Here is how our clients experience the Flyza standard.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <div
+            <TiltCard3D
               key={i}
-              className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between card-luxury"
+              maxTilt={5}
+              glareOpacity={0.12}
+              className="bg-[#FAF9F6] rounded-3xl p-8 sm:p-9 shadow-[0_8px_30px_rgba(4,8,18,0.04)] border border-slate-200/80 flex flex-col justify-between"
             >
-              <div>
-                <div className="flex items-center gap-1 mb-6">
+              <div className="preserve-3d">
+                <div className="flex items-center gap-1 mb-6 translate-z-sm">
                   {[...Array(5)].map((_, s) => (
-                    <Star key={s} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    <Star key={s} className="w-4 h-4 text-amber-500 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-slate-600 font-serif-luxury italic text-base leading-relaxed mb-6">
-                  "{t.quote}"
+                <p className="text-slate-700 font-serif-luxury italic text-base leading-relaxed mb-6">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-100">
-                <div className="font-bold text-[#0A1128] text-sm font-sans tracking-wide">
+              <div className="pt-6 border-t border-slate-200/70">
+                <div className="font-bold text-[#040812] text-sm font-sans tracking-wide">
                   {t.name}
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">
+                <div className="text-xs text-slate-500 mt-0.5">
                   {t.location}
                 </div>
-                <div className="text-[11px] text-[#C5A059] font-semibold mt-2 uppercase tracking-wider">
+                <div className="text-[11px] text-[#9E7D3B] font-semibold mt-2 uppercase tracking-wider">
                   ✦ {t.tour}
                 </div>
               </div>
-            </div>
+            </TiltCard3D>
           ))}
         </div>
       </div>

@@ -27,8 +27,9 @@ const tours: Record<string, {
   },
 };
 
-export default function TourDetailPage({ params }: { params: { id: string } }) {
-  const tour = tours[params.id] ?? tours["1"];
+export default async function TourDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const tour = tours[id] ?? tours["1"];
 
   const bookingMessage = `✈️ *FLYZA TOURS & TRAVELS*
 _Beyond Every Journey_
@@ -39,9 +40,8 @@ _Beyond Every Journey_
 🌍 *Destination:* ${tour.destination}
 ⏱️ *Duration:* ${tour.duration}
 👥 *Travel Style:* ${tour.groupSize}
-💰 *Price:* $${tour.price.toLocaleString()}/person
 
-Hello Flyza Team, I would like to inquire about booking availability, luxury hotel selections, and private dates for this itinerary.
+Hello Flyza Team, I would like to ask for pricing, luxury hotel selections, and available private dates for this itinerary.
 ━━━━━━━━━━━━━━━━━━━━
 📍 _Office: GEC, Chattogram, Bangladesh_`;
 
@@ -197,14 +197,11 @@ Hello Flyza Team, I would like to inquire about booking availability, luxury hot
           {/* Right Sticky Booking Card */}
           <div className="lg:col-span-4">
             <div className="bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-slate-100 p-8 sticky top-28">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 block mb-1">
-                All-Inclusive Starting At
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C5A059] block mb-1">
+                Bespoke Travel Quotation
               </span>
-              <div className="text-4xl font-serif-luxury font-bold text-[#0A1128] mb-2">
-                ${tour.price.toLocaleString()}
-                <span className="text-xs text-slate-400 font-sans font-normal ml-1">
-                  /person
-                </span>
+              <div className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#0A1128] mb-2">
+                Ask for Pricing on WhatsApp
               </div>
 
               <div className="flex items-center gap-1 text-xs text-amber-500 font-semibold mb-6 pb-6 border-b border-slate-100">

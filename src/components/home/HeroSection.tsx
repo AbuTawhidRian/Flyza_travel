@@ -2,140 +2,206 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, MapPin, Calendar, Users, ChevronDown, Compass, ShieldCheck } from "lucide-react";
+import dynamic from "next/dynamic";
+import {
+  MapPin,
+  Calendar,
+  Users,
+  ChevronDown,
+  Compass,
+  ShieldCheck,
+  Sparkles,
+  Globe2,
+  Move3d,
+} from "lucide-react";
+
+const LuxuryGlobe3D = dynamic(() => import("@/components/three/LuxuryGlobe3D"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-48 h-48 rounded-full border border-[#C5A059]/30 bg-[#081022]/60 animate-pulse flex items-center justify-center">
+        <Globe2 className="w-10 h-10 text-[#C5A059]/60 animate-spin" style={{ animationDuration: "8s" }} />
+      </div>
+    </div>
+  ),
+});
 
 export default function HeroSection() {
   const [destination, setDestination] = useState("");
   const [travelers, setTravelers] = useState("2 Guests (Couple)");
 
   return (
-    <section className="relative min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#050B14]">
-      {/* Cinematic Background with Vignette */}
+    <section className="relative min-h-[100vh] flex items-center overflow-hidden obsidian-mesh pt-28 pb-16 lg:pt-32 lg:pb-20">
+      {/* Subtle Architectural Grid Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transform transition-transform duration-1000"
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2000&q=85')`,
+          backgroundImage:
+            "linear-gradient(to right, #C5A059 1px, transparent 1px), linear-gradient(to bottom, #C5A059 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/65 to-[#050B14]/80" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(5,11,20,0.7)_100%)]" />
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-20 text-center">
-        {/* Prestige Heritage Badge */}
-        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-[#C5A059]/40 rounded-full px-6 py-2 mb-8 shadow-xl">
-          <span className="w-1.5 h-1.5 bg-[#C5A059] rounded-full animate-ping" />
-          <span className="text-[#F9E7B9] text-xs font-semibold tracking-[0.25em] uppercase">
-            Bespoke Luxury Travel · Beyond Every Journey
-          </span>
-        </div>
+      {/* Ambient Radial Gold Glow */}
+      <div className="absolute top-1/3 right-1/4 w-[520px] h-[520px] bg-[#C5A059]/12 rounded-full blur-[160px] pointer-events-none" />
 
-        {/* Master Serif Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif-luxury font-medium text-white tracking-tight leading-[1.08] mb-6 max-w-5xl mx-auto">
-          Crafting Journeys of
-          <br />
-          <span className="italic font-normal gold-gradient-text">
-            Incomparable Elegance
-          </span>
-        </h1>
-
-        <p className="text-base sm:text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-          From secluded Maldives lagoons and Swiss Alpine retreats to sacred Umrah packages and accredited medical tourism concierge—Flyza curates the extraordinary.
-        </p>
-
-        {/* Floating Architectural Booking Concierge Bar */}
-        <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-[0_30px_90px_rgba(0,0,0,0.35)] border border-white/60 max-w-5xl mx-auto text-left">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-            {/* Destination */}
-            <div className="md:col-span-2 px-3 py-1">
-              <label className="block text-[10.5px] font-bold text-slate-400 uppercase tracking-[0.16em] mb-1">
-                Where would you like to travel?
-              </label>
-              <div className="relative">
-                <MapPin className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[#C5A059]" />
-                <input
-                  type="text"
-                  placeholder="e.g. Switzerland, Maldives, Dubai, Umrah..."
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  className="w-full pl-7 pr-3 py-2 text-slate-900 font-semibold text-sm placeholder:text-slate-400 focus:outline-none bg-transparent"
-                />
-              </div>
-            </div>
-
-            {/* Travel Date */}
-            <div className="px-3 py-1 border-t md:border-t-0 md:border-l border-slate-100">
-              <label className="block text-[10.5px] font-bold text-slate-400 uppercase tracking-[0.16em] mb-1">
-                Departure Date
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[#C5A059]" />
-                <input
-                  type="date"
-                  className="w-full pl-7 pr-2 py-2 text-slate-900 font-semibold text-sm focus:outline-none bg-transparent"
-                />
-              </div>
-            </div>
-
-            {/* Guests */}
-            <div className="px-3 py-1 border-t md:border-t-0 md:border-l border-slate-100">
-              <label className="block text-[10.5px] font-bold text-slate-400 uppercase tracking-[0.16em] mb-1">
-                Travelers
-              </label>
-              <div className="relative">
-                <Users className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-[#C5A059]" />
-                <select
-                  value={travelers}
-                  onChange={(e) => setTravelers(e.target.value)}
-                  className="w-full pl-7 pr-6 py-2 text-slate-900 font-semibold text-sm focus:outline-none bg-transparent appearance-none"
-                >
-                  <option>1 Guest (Solo)</option>
-                  <option>2 Guests (Couple)</option>
-                  <option>Family (3-5 Guests)</option>
-                  <option>Private Group (6+)</option>
-                </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-              <span className="font-semibold text-slate-700 tracking-wider uppercase text-[11px]">
-                Trending:
+      <div className="relative z-10 w-full max-w-[1480px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+          {/* Left Editorial Column */}
+          <div className="lg:col-span-7 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2.5 shimmer-badge border border-[#C5A059]/40 rounded-full px-5 py-2 mb-7 shadow-xl">
+              <span className="w-2 h-2 bg-[#E8C987] rounded-full animate-pulse" />
+              <span className="text-[#F3DFB1] text-[11px] font-semibold tracking-[0.24em] uppercase">
+                Curated Worldwide Journeys · Beyond Every Journey
               </span>
-              {["Maldives", "Switzerland", "Dubai", "Umrah", "Turkey", "Bangkok"].map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => setDestination(tag)}
-                  className="px-3 py-1 rounded-full bg-slate-100/90 hover:bg-[#C5A059]/15 hover:text-[#C5A059] text-slate-600 transition-colors text-xs font-medium"
-                >
-                  {tag}
-                </button>
-              ))}
             </div>
 
-            <Link
-              href="/tours"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0A1128] hover:bg-[#C5A059] text-white hover:text-[#0A1128] text-xs font-bold tracking-[0.18em] uppercase px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:scale-[1.02]"
-            >
-              <Compass className="w-4 h-4 text-[#C5A059] group-hover:text-[#0A1128]" />
-              <span>Explore Collection</span>
-            </Link>
-          </div>
-        </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-serif-luxury font-normal text-white tracking-tight leading-[1.06] mb-6">
+              Crafting Journeys of
+              <br />
+              <span className="italic font-normal gold-gradient-text">
+                Incomparable Elegance
+              </span>
+            </h1>
 
-        {/* Trust Badges */}
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-300 font-medium">
-          <span className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#C5A059]" />
-            Official Headquarters at GEC, Chattogram
-          </span>
-          <span className="text-slate-600 hidden sm:inline">•</span>
-          <span>✦ 100% Bespoke Travel Design</span>
-          <span className="text-slate-600 hidden sm:inline">•</span>
-          <span>✦ 24/7 Dedicated Client Concierge</span>
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-9 font-light leading-relaxed">
+              From secluded Maldives lagoons and Swiss Alpine retreats to sacred Umrah packages and accredited medical tourism concierge—Flyza curates the extraordinary.
+            </p>
+
+            {/* 3D-Elevated Glassmorphic Concierge Console */}
+            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-4 sm:p-6 shadow-[0_32px_90px_rgba(0,0,0,0.55)] border border-white/80 text-left relative">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
+                {/* Destination */}
+                <div className="md:col-span-2 px-3 py-2 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.18em] mb-1">
+                    Destination or Experience
+                  </label>
+                  <div className="relative flex items-center">
+                    <MapPin className="w-4 h-4 text-[#C5A059] flex-shrink-0 mr-2" />
+                    <input
+                      type="text"
+                      placeholder="Where would you like to travel?"
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                      className="w-full text-slate-900 font-semibold text-sm placeholder:text-slate-400 focus:outline-none bg-transparent"
+                    />
+                  </div>
+                </div>
+
+                {/* Travel Date */}
+                <div className="px-3 py-2 border-t md:border-t-0 md:border-l border-slate-100 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.18em] mb-1">
+                    Preferred Dates
+                  </label>
+                  <div className="relative flex items-center">
+                    <Calendar className="w-4 h-4 text-[#C5A059] flex-shrink-0 mr-2" />
+                    <input
+                      type="date"
+                      className="w-full text-slate-900 font-semibold text-sm focus:outline-none bg-transparent"
+                    />
+                  </div>
+                </div>
+
+                {/* Travelers */}
+                <div className="px-3 py-2 border-t md:border-t-0 md:border-l border-slate-100 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-[0.18em] mb-1">
+                    Travel Party
+                  </label>
+                  <div className="relative flex items-center justify-between">
+                    <div className="flex items-center flex-1 mr-2">
+                      <Users className="w-4 h-4 text-[#C5A059] flex-shrink-0 mr-2" />
+                      <select
+                        value={travelers}
+                        onChange={(e) => setTravelers(e.target.value)}
+                        className="w-full text-slate-900 font-semibold text-sm focus:outline-none bg-transparent appearance-none cursor-pointer"
+                      >
+                        <option>1 Guest (Solo)</option>
+                        <option>2 Guests (Couple)</option>
+                        <option>Family (3-5 Guests)</option>
+                        <option>Private Group (6+)</option>
+                      </select>
+                    </div>
+                    <ChevronDown className="w-4 h-4 text-slate-400 pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                  <span className="font-bold text-slate-700 tracking-wider uppercase text-[10px] mr-1">
+                    Trending:
+                  </span>
+                  {["Maldives", "Switzerland", "Dubai", "Umrah", "Turkey", "Japan"].map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={() => setDestination(tag)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                        destination === tag
+                          ? "bg-[#040812] text-[#E8C987] shadow-sm"
+                          : "bg-slate-100 hover:bg-[#C5A059]/15 hover:text-[#9E7D3B] text-slate-600"
+                      }`}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+
+                <Link
+                  href={destination ? `/tours?search=${encodeURIComponent(destination)}` : "/tours"}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#040812] hover:bg-[#C5A059] text-white hover:text-[#040812] text-xs font-bold tracking-[0.18em] uppercase px-7 py-3.5 rounded-2xl transition-all duration-300 shadow-md hover:scale-[1.02] group"
+                >
+                  <Compass className="w-4 h-4 text-[#C5A059] group-hover:text-[#040812] transition-colors" />
+                  <span>Explore Collection</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Trust Strip */}
+            <div className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-7 text-xs text-slate-300 font-medium">
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#C5A059]" />
+                HQ at GEC, Chattogram
+              </span>
+              <span className="text-slate-600 hidden sm:inline">•</span>
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+                100% Bespoke Architecture
+              </span>
+              <span className="text-slate-600 hidden sm:inline">•</span>
+              <span>✦ 24/7 Client Concierge</span>
+            </div>
+          </div>
+
+          {/* Right 3D Interactive WebGL Globe Column */}
+          <div className="lg:col-span-5 relative flex items-center justify-center">
+            <div className="relative w-full max-w-[540px] h-[380px] sm:h-[460px] lg:h-[540px]">
+              {/* Interactive 3D Globe */}
+              <LuxuryGlobe3D />
+
+              {/* Floating 3D Glass Telemetry Card - Top Right */}
+              <div className="hidden sm:flex items-center gap-3 glass-obsidian px-4 py-3 rounded-2xl shadow-2xl absolute top-6 right-2 sm:right-4 animate-float-3d pointer-events-none">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#E8C987]">
+                    Global Aviation Network
+                  </div>
+                  <div className="text-xs text-white font-medium">
+                    45+ Curated Destinations
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating 3D Interaction Hint - Bottom Left */}
+              <div className="flex items-center gap-2.5 glass-obsidian px-4 py-2.5 rounded-full shadow-xl absolute bottom-4 left-1/2 -translate-x-1/2 sm:left-4 sm:translate-x-0 pointer-events-none">
+                <Move3d className="w-4 h-4 text-[#E8C987]" />
+                <span className="text-[11px] font-medium text-slate-200 whitespace-nowrap">
+                  Drag to rotate 3D globe · CGP Hub
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
